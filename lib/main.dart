@@ -34,8 +34,12 @@ class AppHub extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'App Hub',
           theme: notifier.theme,
-          home: Column(
-            children: this.apps.map((app) => AppWidget(app, WebUtils(), false)).toList(),
+          home: Scaffold(
+            appBar: AppBar(title: Text('App Hub')),
+            drawer: buildDrawer(context),
+            body: Column(
+              children: this.apps.map((app) => AppWidget(app, WebUtils(), false)).toList(),
+            ),
           ),
         ),
       );
