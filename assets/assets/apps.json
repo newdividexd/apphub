@@ -30,6 +30,35 @@
 					"size": "5.81 MB"
 				}
 			]
+		},
+		{
+			"name": "juggernaut",
+			"web": "${url}/${name}",
+			"release": "${files}/${name}/releases/download/1.0/${name}",
+			"windows": [
+				{
+					"target": "-windows",
+					"size": "8.08 MB"
+				}
+			],
+			"android": [
+				{
+					"target": "",
+					"size": "17.7 MB"
+				},
+				{
+					"target": "-arm32",
+					"size": "5.99 MB"
+				},
+				{
+					"target": "-arm64",
+					"size": "6.31 MB"
+				},
+				{
+					"target": "-x86_64",
+					"size": "6.47 MB"
+				}
+			]
 		}
 	]
 }
