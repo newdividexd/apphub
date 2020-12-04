@@ -5,7 +5,7 @@
 		{
 			"name": "phasmophobia",
 			"web": "${url}/${name}",
-			"release": "${files}/${name}/releases/download/1.0/${name}",
+			"release": "${files}/${name}/releases/download/1.1/${name}",
 			"windows": [
 				{
 					"target": "-windows",
