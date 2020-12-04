@@ -8,7 +8,7 @@
 			"release": "${files}/${name}/releases/download/1.1/${name}",
 			"windows": [
 				{
-					"target": "-windows",
+					"target": ".windows",
 					"size": "7.43 MB"
 				}
 			],
@@ -37,7 +37,7 @@
 			"release": "${files}/${name}/releases/download/1.0/${name}",
 			"windows": [
 				{
-					"target": "-windows",
+					"target": ".windows",
 					"size": "8.08 MB"
 				}
 			],
