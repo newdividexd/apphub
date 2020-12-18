@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:apphub/src/app.dart';
 import 'package:apphub/src/webUtils/webUtils.dart';
+import 'package:flutter/foundation.dart';
 
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:url_launcher/url_launcher.dart' as launcher;
@@ -20,9 +21,13 @@ abstract class WebUtilsIO implements WebUtils {
 
   @override
   Future<String> getAppsDef() async {
-    final url = await rootBundle.loadString('assets/repositories_url.txt');
-    final response = await http.get(url);
-    return response.body;
+    if (kDebugMode) {
+      return await rootBundle.loadString('assets/git_repositories.json');
+    } else {
+      final url = await rootBundle.loadString('assets/repositories_url.txt');
+      final response = await http.get(url);
+      return response.body;
+    }
   }
 
   @override
