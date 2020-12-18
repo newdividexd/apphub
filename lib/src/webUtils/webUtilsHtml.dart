@@ -1,10 +1,14 @@
+import 'dart:convert';
+
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 
+import 'package:apphub/src/load/githubApiLoad.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:platform_detect/platform_detect.dart' as web;
 
-import 'package:apphub/app.dart';
-import 'package:apphub/webUtils/webUtils.dart';
+import 'package:apphub/src/app.dart';
+import 'package:apphub/src/webUtils/webUtils.dart';
 
 class WebUtilsHtml implements WebUtils {
   @override
@@ -37,16 +41,25 @@ class WebUtilsHtml implements WebUtils {
   }
 
   @override
-  FlutterPlatform getSupportedPlatform() {
+  Env getSupportedPlatform() {
     String system = web.operatingSystem.name.toLowerCase();
     if (system.contains('windows')) {
-      return FlutterPlatform.Windows;
+      return Env.Windows;
     }
     String userAgent = web.OperatingSystem.navigator.userAgent;
     if (userAgent != null && userAgent.toLowerCase().contains('android')) {
-      return FlutterPlatform.Android;
+      return Env.Android;
     }
     return null;
+  }
+
+  @override
+  Future<List<App>> getApps() async {
+    final reposDef = json.decode(await rootBundle.loadString('assets/git_repositories.json'));
+
+    final repos = reposDef.map<RepositoryDef>((repo) => RepositoryDef(repo['owner'], repo['name']));
+
+    return githubApps(repos);
   }
 }
 

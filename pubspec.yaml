@@ -5,6 +5,17 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  github:
+    git:
+      url: git://github.com/JuanCouste/github.dart.git
+      ref: add_pages_attr
+  ext_storage : any
+  permission_handler : any
+  flutter_downloader : any
+  path_provider : any
+  url_launcher : any
+  version : any
+  http : any
   platform_detect : any
   provider: any
   shared_preferences : any

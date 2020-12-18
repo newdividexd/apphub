@@ -1,0 +1,119 @@
+[
+	{
+		"name": "phasmophobia",
+		"url": "https://newdividexd.github.io/phasmophobia/",
+		"versions": [
+			{
+				"version": "1.1.0",
+				"publish_date": "2020-12-03 23:55:34.000Z",
+				"platforms": {
+					"android": [
+						{
+							"name": "phasmophobia-arm32.apk",
+							"mbytes": 5.298252105712891,
+							"url": "https://github.com/newdividexd/phasmophobia/releases/download/1.1/phasmophobia-arm32.apk"
+						},
+						{
+							"name": "phasmophobia-arm64.apk",
+							"mbytes": 5.655886650085449,
+							"url": "https://github.com/newdividexd/phasmophobia/releases/download/1.1/phasmophobia-arm64.apk"
+						},
+						{
+							"name": "phasmophobia-x86_64.apk",
+							"mbytes": 5.8148956298828125,
+							"url": "https://github.com/newdividexd/phasmophobia/releases/download/1.1/phasmophobia-x86_64.apk"
+						},
+						{
+							"name": "phasmophobia.apk",
+							"mbytes": 16.08866786956787,
+							"url": "https://github.com/newdividexd/phasmophobia/releases/download/1.1/phasmophobia.apk"
+						}
+					],
+					"windows": [
+						{
+							"name": "phasmophobia.windows.zip",
+							"mbytes": 7.43861198425293,
+							"url": "https://github.com/newdividexd/phasmophobia/releases/download/1.1/phasmophobia.windows.zip"
+						}
+					]
+				}
+			},
+			{
+				"version": "1.0.0",
+				"publish_date": "2020-12-02 21:42:33.000Z",
+				"platforms": {
+					"android": [
+						{
+							"name": "phasmophobia-arm32.apk",
+							"mbytes": 5.287967681884766,
+							"url": "https://github.com/newdividexd/phasmophobia/releases/download/1.0/phasmophobia-arm32.apk"
+						},
+						{
+							"name": "phasmophobia-arm64.apk",
+							"mbytes": 5.648113250732422,
+							"url": "https://github.com/newdividexd/phasmophobia/releases/download/1.0/phasmophobia-arm64.apk"
+						},
+						{
+							"name": "phasmophobia-x86_64.apk",
+							"mbytes": 5.805188179016113,
+							"url": "https://github.com/newdividexd/phasmophobia/releases/download/1.0/phasmophobia-x86_64.apk"
+						},
+						{
+							"name": "phasmophobia.apk",
+							"mbytes": 16.060909271240234,
+							"url": "https://github.com/newdividexd/phasmophobia/releases/download/1.0/phasmophobia.apk"
+						}
+					],
+					"windows": [
+						{
+							"name": "phasmophobia.windows.zip",
+							"mbytes": 7.430773735046387,
+							"url": "https://github.com/newdividexd/phasmophobia/releases/download/1.0/phasmophobia.windows.zip"
+						}
+					]
+				}
+			}
+		]
+	},
+	{
+		"name": "juggernaut",
+		"url": "https://newdividexd.github.io/juggernaut/",
+		"versions": [
+			{
+				"version": "1.0.0",
+				"publish_date": "2020-12-03 03:16:42.000Z",
+				"platforms": {
+					"android": [
+						{
+							"name": "juggernaut-arm32.apk",
+							"mbytes": 5.994916915893555,
+							"url": "https://github.com/newdividexd/juggernaut/releases/download/1.0/juggernaut-arm32.apk"
+						},
+						{
+							"name": "juggernaut-arm64.apk",
+							"mbytes": 6.313793182373047,
+							"url": "https://github.com/newdividexd/juggernaut/releases/download/1.0/juggernaut-arm64.apk"
+						},
+						{
+							"name": "juggernaut-x86_64.apk",
+							"mbytes": 6.470150947570801,
+							"url": "https://github.com/newdividexd/juggernaut/releases/download/1.0/juggernaut-x86_64.apk"
+						},
+						{
+							"name": "juggernaut.apk",
+							"mbytes": 17.667189598083496,
+							"url": "https://github.com/newdividexd/juggernaut/releases/download/1.0/juggernaut.apk"
+						}
+					],
+					"windows": [
+						{
+							"name": "juggernaut.windows.zip",
+							"mbytes": 8.082572937011719,
+							"url": "https://github.com/newdividexd/juggernaut/releases/download/1.0/juggernaut.windows.zip"
+						}
+					]
+				}
+			}
+		]
+	}
+]

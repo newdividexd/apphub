@@ -1,19 +1,20 @@
-import 'package:apphub/webUtils/webUtils.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:apphub/app.dart';
-import 'package:apphub/appLoad.dart';
-import 'package:apphub/appWidget.dart';
-import 'package:apphub/themeNotifier.dart';
+import 'package:apphub/src/app.dart';
+
+import 'package:apphub/src/webUtils/webUtils.dart';
+
+import 'package:apphub/src/widgets/appWidget.dart';
+import 'package:apphub/src/widgets/themeNotifier.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Future.wait<dynamic>([
-    loadEntries(),
+    WebUtils().getApps(),
     SharedPreferences.getInstance(),
   ]).then((value) => runApp(
         ChangeNotifierProvider<ThemeNotifier>(
@@ -37,8 +38,8 @@ class AppHub extends StatelessWidget {
           home: Scaffold(
             appBar: AppBar(title: Text('App Hub')),
             drawer: buildDrawer(context),
-            body: Column(
-              children: this.apps.map((app) => AppWidget(app, WebUtils(), false)).toList(),
+            body: ListView(
+              children: this.apps.map((app) => AppWidget(app, WebUtils())).toList(),
             ),
           ),
         ),
