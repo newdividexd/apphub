@@ -7,7 +7,7 @@ import 'package:apphub/src/webUtils/webUtilsStub.dart'
     if (dart.library.html) 'package:apphub/src/webUtils/webUtilsHtml.dart';
 
 abstract class WebUtils {
-  Future<List<App>> getApps();
+  Future<String> getAppsDef();
 
   void open(String url, String name);
 

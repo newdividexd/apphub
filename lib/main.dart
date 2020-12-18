@@ -1,3 +1,4 @@
+import 'package:apphub/src/load/githubApiLoad.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -14,7 +15,7 @@ import 'package:apphub/src/widgets/themeNotifier.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Future.wait<dynamic>([
-    WebUtils().getApps(),
+    githubApps(),
     SharedPreferences.getInstance(),
   ]).then((value) => runApp(
         ChangeNotifierProvider<ThemeNotifier>(

@@ -1,9 +1,6 @@
-import 'dart:convert';
-
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 
-import 'package:apphub/src/load/githubApiLoad.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:platform_detect/platform_detect.dart' as web;
 
@@ -11,6 +8,11 @@ import 'package:apphub/src/app.dart';
 import 'package:apphub/src/webUtils/webUtils.dart';
 
 class WebUtilsHtml implements WebUtils {
+  @override
+  Future<String> getAppsDef() async {
+    return rootBundle.loadString('assets/git_repositories.json');
+  }
+
   @override
   void open(String url, String name) {
     html.window.open(url, name);
@@ -51,15 +53,6 @@ class WebUtilsHtml implements WebUtils {
       return Env.Android;
     }
     return null;
-  }
-
-  @override
-  Future<List<App>> getApps() async {
-    final reposDef = json.decode(await rootBundle.loadString('assets/git_repositories.json'));
-
-    final repos = reposDef.map<RepositoryDef>((repo) => RepositoryDef(repo['owner'], repo['name']));
-
-    return githubApps(repos);
   }
 }
 

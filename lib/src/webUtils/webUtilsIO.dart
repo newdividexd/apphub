@@ -1,8 +1,6 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:apphub/src/app.dart';
-import 'package:apphub/src/load/githubApiLoad.dart';
 import 'package:apphub/src/webUtils/webUtils.dart';
 
 import 'package:flutter/services.dart' show rootBundle;
@@ -21,6 +19,13 @@ abstract class WebUtilsIO implements WebUtils {
   WebUtilsIO(this.platform);
 
   @override
+  Future<String> getAppsDef() async {
+    final url = await rootBundle.loadString('assets/repositories_url.txt');
+    final response = await http.get(url);
+    return response.body;
+  }
+
+  @override
   void open(String url, String name) {
     launcher.launch(url);
   }
@@ -34,26 +39,15 @@ abstract class WebUtilsIO implements WebUtils {
   Env getSupportedPlatform() {
     return this.platform;
   }
-
-  @override
-  Future<List<App>> getApps() async {
-    final url = await rootBundle.loadString('assets/repositories_url.txt');
-
-    final reposDef = json.decode((await http.get(url)).body);
-
-    final repos = reposDef.map<RepositoryDef>((repo) => RepositoryDef(repo['owner'], repo['name']));
-
-    return githubApps(repos);
-  }
 }
 
 class WebUtilsMobile extends WebUtilsIO {
   WebUtilsMobile(Env platform) : super(platform);
 
   @override
-  Future<List<App>> getApps() async {
+  Future<String> getAppsDef() async {
     await FlutterDownloader.initialize(debug: true);
-    return super.getApps();
+    return super.getAppsDef();
   }
 
   @override

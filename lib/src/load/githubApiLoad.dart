@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:apphub/src/webUtils/webUtils.dart';
 import 'package:github/github.dart';
 
 import 'package:apphub/src/app.dart';
@@ -49,15 +52,10 @@ Future<App> _getApp(Repository repository) async {
   return App(repository.name, webUrl, versions.first, versions);
 }
 
-class RepositoryDef {
-  final String owner;
-  final String name;
+Future<List<App>> githubApps() async {
+  final reposDef = json.decode(await WebUtils().getAppsDef()) as List;
 
-  RepositoryDef(this.owner, this.name);
-}
-
-Future<List<App>> githubApps(List<RepositoryDef> repositories) async {
-  final slugs = repositories.map<RepositorySlug>((repoDef) => RepositorySlug(repoDef.owner, repoDef.name)).toList();
+  final slugs = reposDef.map<RepositorySlug>((repo) => RepositorySlug(repo['owner'], repo['name'])).toList();
 
   final repos = await _github.repositories.getRepositories(slugs).toList();
 
